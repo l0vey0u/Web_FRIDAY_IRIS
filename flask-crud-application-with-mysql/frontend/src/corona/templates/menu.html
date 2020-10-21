@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>데이터 입력</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    </head>
+    <body>
+        <div class="main">
+            <h1>메뉴 입력하기</h1>
+            <div class="links">
+                    <a href="{{ url_for('db_read') }}">학습하기</a>
+                    <a href="{{ url_for('db_create') }}">예측하기</a>
+                    <a href="{{ url_for('db_menu') }}" class="active">메뉴 입력하기</a>
+            </div>
+            <details>
+                <summary>
+                    API 입력
+                </summary>
+                <form name = "API" action = {{ url_for('db_menu') }} method = "post" enctype="multipart/form-data">
+                    API 주소 입력 : <input type = "text" name = "menu_API">
+                    <input type = "submit" value = "input">
+                </form>
+            </details>
+            <details>
+                <summary>
+                    파일 형식 입력
+                </summary>
+                <p>
+                    <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+				        <input type=file name=file>
+				        <input type=submit value=Upload>
+                    </form>
+                </p>
+            </details>
+            <details>
+                <summary>
+                    직접 입력
+                </summary>
+            <form action="menu" method="GET">
+                <label for="DATE">
+                    <i class="fas fa-calendar-day"></i>
+                </label>
+                <input type="date">
+                <table>
+                    <tr>
+                        <th>
+                            시간대
+                        </th>
+                        <th>
+                            <select name="time">
+                                <option value="none" selected disabled>=== 선택 ===</option>
+                                <option value="break">아침</option>
+                                <option value="lunch">점심</option>
+                                <option value="dinner">저녁</option>
+                             </select>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            밥
+                        </th>
+                        <th>
+                            <input type="text" name="rice" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            메인
+                        </th>
+                        <th>
+                            <input type="text" name="main" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            김치
+                        </th>
+                        <th>
+                            <input type="text" name="Kimchi" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            서브
+                        </th>
+                        <th>
+                            <input type="text" name="sub" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            국
+                        </th>
+                        <th>
+                            <input type="text" name="soup" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            부식
+                        </th>
+                        <th>
+                            <input type="text" name="side"" />
+                        </th>
+                    </tr>
+                </table>
+                <input type="submit" value="DB로 정보 보내기">
+            </form>
+            </details>
+            <div class="msg">{{ msg }}</div>
+        </div>
+    </body>
+</html>

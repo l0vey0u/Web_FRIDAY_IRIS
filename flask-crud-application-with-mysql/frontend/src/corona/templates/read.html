@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>데이터 입력</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+	</head>
+	<body>
+		<div class="main">
+			<h1>학습하기</h1>
+			<div class="links">
+					<a href="{{ url_for('db_read') }}" class="active">학습하기</a>
+					<a href="{{ url_for('db_create') }}">예측하기</a>
+					<a href="{{ url_for('db_menu') }}">메뉴 입력하기</a>
+			</div>
+			<details>
+                <summary>
+                    식수 인원 입력
+				</summary>
+				<center>
+				<label for="DATE">
+                    <i class="fas fa-calendar-day"></i>
+                </label>
+				<input type="date">
+				</center>
+				<blockquote>
+				<details>
+					<summary>
+						QR코드로 부터 받아오기
+					</summary>
+					<input type=submit value=Upload>
+				</details>
+				</blockquote>
+				<blockquote>
+				<details>
+					<summary>
+						직접 입력하기
+					</summary>
+					<table>
+						<th>
+							식수인원 (총 인원)
+						</th>
+						<th>
+							실식수인원 (열외자 제외)
+						</th>
+						<tr>
+							<th>
+								<input type='number'></input>
+							</th>
+							<th>
+								<input type='number'></input>
+							</th>
+						</tr>
+					</table>
+					<input type=submit value=Upload>
+				</details>
+				</blockquote>
+			</details>
+			<br>
+			<details>
+                <summary>
+                    잔반 입력 란
+                </summary>	
+				<center>
+					<label for="DATE">
+						<i class="fas fa-calendar-day"></i>
+					</label>
+					<input type="date">
+				<br>시간대 : <select name="time">
+					<option value="none" selected disabled>=== 필수 ===</option>
+					<option value="break">아침</option>
+					<option value="lunch">점심</option>
+					<option value="dinner">저녁</option>
+				</select>
+				그룹 : <select name="group">
+					<option value="none">=== 선택 ===</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</select>
+				</center>
+				<table>
+					<th>
+						밥
+					</th>
+					<th>
+						메인
+					</th>
+					<th>
+						김치
+					</th>
+					<th>
+						서브
+					</th>
+					<th>
+						국
+					</th>
+					<th>
+						부식
+					</th>
+					<tr>
+						<th>
+							<input type='number'></input>
+						</th>
+						<th>
+							<input type='number'></input>
+						</th>
+						<th>
+							<input type='number'></input>
+						</th>
+						<th>
+							<input type='number'></input>
+						</th>
+						<th>
+							<input type='number'></input>
+						</th>
+						<th>
+							<input type='number'></input>
+						</th>
+					</tr>
+				</table>
+				<input type=submit value=Upload>
+			</details> 
+		</div>
+	</body>
+</html>
